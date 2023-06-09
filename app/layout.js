@@ -1,5 +1,10 @@
+'use client'
+import Header from '@components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { usePathname } from 'next/navigation'
+import Footer from '@components/Footer'
+import UseProvider from '@redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,9 +14,23 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const path = usePathname()
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={` bg-red-200 inter.className 
+          ${path === '/' && 'bg-lime-100'}
+          ${path === '/projects' && 'bg-blue-100'}
+          `}
+      >
+        <UseProvider>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="mb-auto bg-slate-100">{children}</main>
+            <Footer />
+          </div>
+        </UseProvider>
+      </body>
     </html>
   )
 }

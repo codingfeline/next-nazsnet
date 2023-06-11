@@ -27,8 +27,10 @@ export default function FilterPage() {
     const { value } = event.target
     setFilter(value)
 
-    const filtered = data.filter(item =>
-      item.comment.toLowerCase().includes(value.toLowerCase())
+    const filtered = data.filter(
+      item =>
+        item.comment.toLowerCase().includes(value.toLowerCase()) ||
+        item.topic.toLowerCase().includes(value.toLowerCase())
     )
     setFilteredData(filtered)
   }

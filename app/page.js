@@ -1,19 +1,36 @@
-import React from 'react'
-import parse from 'html-react-parser'
+'use client'
 
-const page = async () => {
-  const journals = await getJournals()
-  // console.log(journals)
+import {
+  useEffect,
+  useDispatch,
+  axios,
+  setJournal,
+  useSelector,
+} from '@components'
+
+const page = () => {
+  const counter = useSelector(state => state.counter.value)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://nazs.net/api/journals')
+        const journals = response.data
+        dispatch(setJournal(journals))
+      } catch (error) {
+        console.error('Error fetching journals:', error)
+      }
+    }
+
+    fetchData()
+  }, [dispatch])
+
   return (
     <>
       <div className="flex flex-col justify-center items-center   bg-lime-100">
-        page <hr />
-        <ul className="flex flex-col justify-center  w-3/4 overflow-x-clip">
-          {/* {JSON.stringify(journals.length)} */}
-          {journals.map(journal => (
-            <li className="w-3/">{parse(journal.comment)}</li>
-          ))}
-        </ul>
+        <input type="text" onChange={e => setQuery(e.target.value)} />
+        {counter}
       </div>
     </>
   )

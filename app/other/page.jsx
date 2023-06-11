@@ -1,12 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import parse from 'html-react-parser'
+import { useState, useEffect, axios, parse } from '@components'
 
 export default function FilterPage() {
   const [data, setData] = useState([])
-  const [filteredData, setFilteredData] = useState([])
+  const [filteredJournals, setFilteredJournals] = useState([])
   const [filter, setFilter] = useState('')
 
   useEffect(() => {
@@ -32,24 +30,27 @@ export default function FilterPage() {
         item.comment.toLowerCase().includes(value.toLowerCase()) ||
         item.topic.toLowerCase().includes(value.toLowerCase())
     )
-    setFilteredData(filtered)
+    setFilteredJournals(filtered)
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Filter by name..."
-        value={filter}
-        onChange={handleFilterChange}
-      />
-      {filter && (
-        <ul>
-          {filteredData.map(item => (
-            <li key={item.id}>{parse(item.comment)}</li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <>
+      <div className="">
+        <input
+          type="text"
+          placeholder="Filter by name..."
+          value={filter}
+          onChange={handleFilterChange}
+        />
+        {filter && (
+          <ul>
+            {filteredJournals.map(item => (
+              <li key={item.id}>{parse(item.comment)}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+      {filter && filteredJournals.length === 0 && <p>no result </p>}
+    </>
   )
 }

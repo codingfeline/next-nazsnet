@@ -1,10 +1,7 @@
 'use client'
-import Header from '@components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { usePathname } from 'next/navigation'
-import Footer from '@components/Footer'
-import UseProvider from '@redux/provider'
+import { UseProvider, Header, Footer, usePathname } from '@components'
 
 const inter = Inter({ subsets: ['latin'] })
 

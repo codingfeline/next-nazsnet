@@ -1,15 +1,17 @@
 'use client'
-import { increment } from '@redux/features/counter/counterSlice'
-import { useSelector, useDispatch } from 'react-redux'
+import { increment, useSelector, useDispatch } from '@components'
 
 const Projects = () => {
   const count = useSelector(state => state.counter.value)
+  const journals = useSelector(state => state.journal.value)
   const dispatch = useDispatch()
   return (
     <div>
       <h2>projects</h2>
       <h3>count: {count}</h3>
       <button onClick={() => dispatch(increment())}>increment</button>
+      {/* <p>{JSON.stringify(journals)}</p> */}
+
       <p className="hidden">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut
         reprehenderit quos nulla aliquid sint quam architecto voluptas ex,

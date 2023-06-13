@@ -16,3 +16,5 @@ export { setJournal } from '@redux/features/journal/journalSlice'
 
 export { Dialog, Transition } from '@headlessui/react'
 export { FaBars } from 'react-icons/fa'
+
+export { default as Modal } from './Modal'

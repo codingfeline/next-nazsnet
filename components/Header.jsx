@@ -1,6 +1,6 @@
 'use client'
-// prettier-ignore
-import {Link, usePathname, useState, useEffect, FaBars} from '@components'
+
+import { Link, usePathname, useState, useEffect, FaBars } from '@components'
 
 const Header = () => {
   const [hidden, setHidden] = useState(true)
@@ -25,10 +25,7 @@ const Header = () => {
         <div className="bg-slate-100 md:hidden z-40 text-center">
           {/* <button onClick={toggleMenu}>toggleMenu</button> */}
 
-          <FaBars
-            onClick={toggleMenu}
-            className="hover:cursor-pointer hover:text-slate-800 w-full"
-          />
+          <FaBars onClick={toggleMenu} className="hover:cursor-pointer hover:text-slate-800 w-full" />
         </div>
         <div
           className={`duration-200 md:static absolute bg-blue-100 md:min-h-fit min-h-[100vh] left-0  md:w-auto  w-full flex items-center justify-center  z-50 hover:cursor-pointer 
@@ -45,11 +42,7 @@ const Header = () => {
                     onClick={collapse}
                     href={link.to}
                     className={`nav-a p-2
-                    ${
-                      isActive
-                        ? 'bg-slate-200 hover:bg-lime-100'
-                        : 'hover:bg-blue-300'
-                    }
+                    ${isActive ? 'bg-slate-200 hover:bg-lime-100' : 'hover:bg-blue-300'}
                   `}
                   >
                     {link.page.toUpperCase()}

@@ -2,7 +2,7 @@
 // prettier-ignore
 import { useEffect, useState,  useDispatch,axios,  setJournal, useSelector, Modal } from '@components'
 
-const page = () => {
+const Page = () => {
   const counter = useSelector(state => state.counter.value)
   const dispatch = useDispatch()
 
@@ -50,7 +50,7 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
 
 const getJournals = async () => {
   const res = await fetch('https://nazs.net/api/journals')

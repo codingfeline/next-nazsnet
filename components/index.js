@@ -1,4 +1,4 @@
-export { default as React, useEffect, useState, Fragment } from 'react'
+export { default as React, useEffect, useState, Fragment, useRef } from 'react'
 export { usePathname } from 'next/navigation'
 export { default as Image } from 'next/image'
 export { default as Link } from 'next/link'
@@ -18,3 +18,5 @@ export { Dialog, Transition } from '@headlessui/react'
 export { FaBars } from 'react-icons/fa'
 
 export { default as Modal } from './Modal'
+
+export { default as ContentEditable } from 'react-contenteditable'

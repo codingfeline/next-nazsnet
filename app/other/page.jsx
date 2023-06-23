@@ -1,11 +1,20 @@
 'use client'
 
-import { useState, useEffect, axios, parse } from '@components'
+import { useState, useEffect, axios, parse, ContentEditable, useRef } from '@components'
 
 export default function FilterPage() {
   const [data, setData] = useState([])
   const [filteredJournals, setFilteredJournals] = useState([])
   const [filter, setFilter] = useState('')
+  const text = useRef('hello there')
+
+  const handleChange = e => {
+    text.current = e.target.value
+  }
+
+  const handleBlur = () => {
+    console.log(text.current)
+  }
 
   useEffect(() => {
     fetchData()
@@ -51,6 +60,12 @@ export default function FilterPage() {
         )}
       </div>
       {filter && filteredJournals.length === 0 && <p>no result </p>}
+      <ContentEditable
+        html={text.current}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className="bg-blue-100 p-2 m-1"
+      />
     </>
   )
 }

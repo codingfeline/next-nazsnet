@@ -17,6 +17,7 @@
     "eslint-config-next": "13.4.2",
     "html-react-parser": "^4.0.0",
     "next": "^13.4.4",
+    "next-auth": "^4.22.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-contenteditable": "^3.3.7",

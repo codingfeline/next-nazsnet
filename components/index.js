@@ -20,3 +20,9 @@ export { FaBars } from 'react-icons/fa'
 export { default as Modal } from './Modal'
 
 export { default as ContentEditable } from 'react-contenteditable'
+
+export {
+  BsChevronCompactLeft as Left,
+  BsChevronCompactRight as Right,
+} from 'react-icons/bs'
+export { RxDotFilled as Dot } from 'react-icons/rx'

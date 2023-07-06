@@ -1,9 +1,6 @@
 'use client'
-
-import { current } from '@reduxjs/toolkit'
-import React, { useState } from 'react'
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
-import { RxDotFilled } from 'react-icons/rx'
+// prettier-ignore
+import { useState, Right, Left, Dot } from '@components'
 
 const page = () => {
   const slides = [
@@ -37,11 +34,11 @@ const page = () => {
       ></div>
       {/* Left Arrow */}
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <BsChevronCompactLeft onClick={prevSlide} size={30} />
+        <Left onClick={prevSlide} size={30} />
       </div>
       {/* Right Arrow */}
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <BsChevronCompactRight onClick={nextSlide} size={30} />
+        <Right onClick={nextSlide} size={30} />
       </div>
       <div className="flex top-4 justify-center py-2">
         {slides.map((slide, slideIndex) => (
@@ -51,9 +48,21 @@ const page = () => {
             className="text-2xl cursor-pointer"
           >
             {currentIndex === slideIndex ? (
-              <RxDotFilled className="text-red-400" />
+              <>
+                {/* <Dot className="text-blue-400" /> */}
+                <div
+                  style={{ backgroundImage: `url(${slides[slideIndex].url})` }}
+                  className="w-[70px] h-[75px] mx-1 bg-cover delay-500"
+                ></div>
+              </>
             ) : (
-              <RxDotFilled />
+              <>
+                {/* <Dot className="hover:text-blue-400" /> */}
+                <div
+                  style={{ backgroundImage: `url(${slides[slideIndex].url})` }}
+                  className="w-[70px] h-[70px] mx-1 bg-cover delay-500"
+                ></div>
+              </>
             )}
           </div>
         ))}

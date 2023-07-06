@@ -42,3 +42,21 @@ Content-Type: application/json
   "email": "{{user1}}",
   "password": "wrongpassword" 
 }
+###
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "email": "{{user1}}",
+  "password": "wrongpassword" 
+}
+###
+GET {{url-journals}}
+###
+POST {{url-jornals-login}}
+Content-Type: application/json
+
+{
+  "email": "{{user4}}",
+  "password": "{{pass4}}" 
+}
